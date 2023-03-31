@@ -6,7 +6,7 @@ import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-contract MyToken is
+contract BTREEToken is
     Initializable,
     ERC20Upgradeable,
     PausableUpgradeable,
@@ -21,7 +21,7 @@ contract MyToken is
     }
 
     function initialize() public initializer {
-        __ERC20_init("MyToken", "MTK");
+        __ERC20_init("BTREEToken", "MTK");
         __Pausable_init();
         __AccessControl_init();
 
