@@ -4,13 +4,13 @@ import hre from 'hardhat';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 import { Contract } from 'ethers';
 
-describe('MyToken', function () {
+describe('BTREEToken', function () {
     let contract: Contract;
     let owner: SignerWithAddress;
     let otherUser: SignerWithAddress;
 
     beforeEach(async function () {
-        const Contract = await hre.ethers.getContractFactory('MyToken');
+        const Contract = await hre.ethers.getContractFactory('BTREEToken');
 
         const [_owner, _otherUser] = await hre.ethers.getSigners();
         owner = _owner;
