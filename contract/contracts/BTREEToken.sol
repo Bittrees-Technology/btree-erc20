@@ -12,7 +12,7 @@ contract BTREEToken is ERC20, Pausable, AccessControl {
     constructor() ERC20("BTREE", "BTREE") {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(PAUSER_ROLE, msg.sender);
-        _mint(msg.sender, 1000 * 10 ** decimals());
+        _mint(msg.sender, 21000000 * 18 ** decimals());
         _grantRole(MINTER_ROLE, msg.sender);
     }
 
