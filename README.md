@@ -57,9 +57,32 @@ Now, try running the tests again and make sure everything is working.
 
 -   cd contract
 -   deploy via `npx hardhat run --network testnet scripts/deploy.js`
+-   verify via `npx hardhat verify --network testnet CONTRACT_ADDRESS`
 
 ### Deploy to Mainnet
 
 If you're happy with everything after testing locally and on testnet, it's time to deploy to production on Mainnet.
 
 Use same instructions above for deploying to testnet but use `--network mainnet` command option instead.
+
+## Live Contracts
+
+Admin role: 0x0
+Minter role: 0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6
+Pauser role: 0x65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a
+
+### Testnet (Goerli)
+
+Contract: https://goerli.etherscan.io/address/0x1Ca23BB7dca2BEa5F57552AE99C3A44fA7307B5f
+
+Assign minter and pauser role to `0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61` and `0xE5350D96FC3161BF5c385843ec5ee24E8B465B2f` via `grantRole` method on contract.
+
+### Mainnet (Ethereum)
+
+Contract: 0x6bDdE71Cf0C751EB6d5EdB8418e43D3d9427e436
+
+Minter, Authority (Board of Directors): 0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61
+Pauser (Core DAO): 0x2268E2b8F7640a29752C5c58b8735906F4E84F60  
+Recipient is Bittrees Capital: 0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd
+
+<https://app.safe.global/home?safe=eth:0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd>
