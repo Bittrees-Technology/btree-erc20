@@ -1,6 +1,6 @@
 # btree-erc20
 
-![Solidity tests](https://github.com/briangershon/btree-erc20/actions/workflows/continuous-integration.yaml/badge.svg)
+![Solidity tests](https://github.com/Bittrees-Technology/btree-erc20/actions/workflows/continuous-integration.yaml/badge.svg)
 
 Develop, test and deploy an ERC-20 contract based on OpenZeppelin Solidity framework and Hardhat development environment. Deploy to any EVM blockchain.
 
