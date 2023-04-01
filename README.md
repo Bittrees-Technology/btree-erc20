@@ -81,8 +81,8 @@ Assign minter and pauser role to `0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61` an
 
 Contract: 0x6bDdE71Cf0C751EB6d5EdB8418e43D3d9427e436
 
-Minter, Authority (Board of Directors): 0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61
-Pauser (Core DAO): 0x2268E2b8F7640a29752C5c58b8735906F4E84F60  
-Recipient is Bittrees Capital: 0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd
+Roles and Wallets
 
-<https://app.safe.global/home?safe=eth:0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd>
+-   Minter, Authority (Board of Directors): 0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61
+-   Pauser (Core DAO): 0x2268E2b8F7640a29752C5c58b8735906F4E84F60
+-   Recipient is Bittrees Capital: 0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd <https://app.safe.global/home?safe=eth:0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd>
