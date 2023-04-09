@@ -1,5 +1,4 @@
 import { expect } from 'chai';
-import { ethers, upgrades } from 'hardhat';
 import hre from 'hardhat';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 import { Contract } from 'ethers';
@@ -16,7 +15,7 @@ describe('BTREEToken', function () {
         owner = _owner;
         otherUser = _otherUser;
 
-        contract = await upgrades.deployProxy(Contract);
+        contract = await Contract.deploy();
         await contract.deployed();
     });
 
