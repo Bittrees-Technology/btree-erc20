@@ -1,8 +1,6 @@
-// scripts/deploy.js
-const { ethers, upgrades } = require('hardhat');
+const { ethers } = require('hardhat');
 
 async function main() {
-    // deploy upgradeable contract
     const [deployer] = await ethers.getSigners();
     console.log(
         'Deploy wallet balance:',
@@ -10,11 +8,11 @@ async function main() {
     );
     console.log('Deployer wallet public key:', deployer.address);
 
-    const Contract = await ethers.getContractFactory('MyToken');
-    const proxyContract = await upgrades.deployProxy(Contract);
-    await proxyContract.deployed();
+    const Contract = await ethers.getContractFactory('BTREEToken');
+    const contract = await Contract.deploy();
+    await contract.deployed();
 
-    console.log(`OpenZeppelin Proxy deployed to ${proxyContract.address}\n\n`);
+    console.log(`BTREEToken contract deployed to: ${contract.address}`);
 }
 
 main()
