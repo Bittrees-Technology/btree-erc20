@@ -71,6 +71,10 @@ Admin role: 0x0
 Minter role: 0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6
 Pauser role: 0x65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a
 
+### Testnet (Base Sepolia)
+
+Contract: https://sepolia.basescan.org/address/0xCa6f24a651bc4Ab545661a41a81EF387086a34C2
+
 ### Testnet (Goerli)
 
 Contract: https://goerli.etherscan.io/address/0x1Ca23BB7dca2BEa5F57552AE99C3A44fA7307B5f
@@ -97,7 +101,7 @@ npx hardhat console --network testnet
 ```javascript
 const Contract = await ethers.getContractFactory('BTREEToken');
 const contract = await Contract.attach(
-    '0x1Ca23BB7dca2BEa5F57552AE99C3A44fA7307B5f'
+    '0xCa6f24a651bc4Ab545661a41a81EF387086a34C2'
 );
 await contract.balanceOf('0x7435e7f3e6B5c656c33889a3d5EaFE1e17C033CD');
 
@@ -114,12 +118,15 @@ await contract.transfer(
 );
 
 // increaseAllowance by 550,000 BTREE for contract (`0x14dBB93a78B5e89540e902d1E6Ee26C989e08ef0`) wanting to spent it
-// FIRST: ensure you using test wallet that you want to increase allowance for
+// FIRST: ensure you are using test wallet that you want to increase allowance for
 await contract.increaseAllowance(
     '0x14dBB93a78B5e89540e902d1E6Ee26C989e08ef0',
     '555000000000000000000000'
 );
 
 // owner and sender
-await contract.allowance('0x458788Af51027917462c87AA6959269249CE8B4c', '0x14dBB93a78B5e89540e902d1E6Ee26C989e08ef0')
+await contract.allowance(
+    '0x458788Af51027917462c87AA6959269249CE8B4c',
+    '0x14dBB93a78B5e89540e902d1E6Ee26C989e08ef0'
+);
 ```
