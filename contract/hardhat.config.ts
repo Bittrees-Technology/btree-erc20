@@ -41,7 +41,6 @@ const config: HardhatUserConfig = {
                     browserURL: 'https://basescan.org/',
                 },
             },
-
             {
                 network: 'base sepolia',
                 chainId: 84532,

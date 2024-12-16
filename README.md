@@ -105,8 +105,29 @@ npx hardhat console --network testnet
 ```javascript
 const Contract = await ethers.getContractFactory('BTREEToken');
 const contract = await Contract.attach(
-    '0xCa6f24a651bc4Ab545661a41a81EF387086a34C2'
+    '0x4DE534be4793C52ACc69A230A0318fF1A06aF8A0'
 );
+
+// minter role
+await contract.grantRole(
+    '0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6',
+    '0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61'
+);
+await contract.hasRole(
+    '0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6',
+    '0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61'
+);
+
+// pauser role
+await contract.grantRole(
+    '0x65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a',
+    '0x2268E2b8F7640a29752C5c58b8735906F4E84F60'
+);
+await contract.hasRole(
+    '0x65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a',
+    '0x2268E2b8F7640a29752C5c58b8735906F4E84F60'
+);
+
 await contract.balanceOf('0x7435e7f3e6B5c656c33889a3d5EaFE1e17C033CD');
 
 // mint 5,000,000 BTREE
