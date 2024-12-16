@@ -75,15 +75,19 @@ Pauser role: 0x65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a
 
 Contract: https://sepolia.basescan.org/address/0xCa6f24a651bc4Ab545661a41a81EF387086a34C2
 
-### Testnet (Goerli)
-
-Contract: https://goerli.etherscan.io/address/0x1Ca23BB7dca2BEa5F57552AE99C3A44fA7307B5f
-
-Assign minter and pauser role to `0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61` and `0xE5350D96FC3161BF5c385843ec5ee24E8B465B2f` via `grantRole` method on contract.
-
 ### Mainnet (Ethereum)
 
-Contract: 0x6bDdE71Cf0C751EB6d5EdB8418e43D3d9427e436
+Contract: https://etherscan.io/address/0x6bDdE71Cf0C751EB6d5EdB8418e43D3d9427e436
+
+Roles and Wallets
+
+-   Minter, Authority (Board of Directors): 0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61
+-   Pauser (Core DAO): 0x2268E2b8F7640a29752C5c58b8735906F4E84F60
+-   Recipient is Bittrees Capital: 0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd <https://app.safe.global/home?safe=eth:0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd>
+
+### Mainnet (Base)
+
+Contract: https://basescan.org/address/0x4DE534be4793C52ACc69A230A0318fF1A06aF8A0
 
 Roles and Wallets
 
