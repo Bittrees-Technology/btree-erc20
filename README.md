@@ -71,15 +71,23 @@ Admin role: 0x0
 Minter role: 0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6
 Pauser role: 0x65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a
 
-### Testnet (Goerli)
+### Testnet (Base Sepolia)
 
-Contract: https://goerli.etherscan.io/address/0x1Ca23BB7dca2BEa5F57552AE99C3A44fA7307B5f
-
-Assign minter and pauser role to `0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61` and `0xE5350D96FC3161BF5c385843ec5ee24E8B465B2f` via `grantRole` method on contract.
+Contract: https://sepolia.basescan.org/address/0xCa6f24a651bc4Ab545661a41a81EF387086a34C2
 
 ### Mainnet (Ethereum)
 
-Contract: 0x6bDdE71Cf0C751EB6d5EdB8418e43D3d9427e436
+Contract: https://etherscan.io/address/0x6bDdE71Cf0C751EB6d5EdB8418e43D3d9427e436
+
+Roles and Wallets
+
+-   Minter, Authority (Board of Directors): 0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61
+-   Pauser (Core DAO): 0x2268E2b8F7640a29752C5c58b8735906F4E84F60
+-   Recipient is Bittrees Capital: 0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd <https://app.safe.global/home?safe=eth:0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd>
+
+### Mainnet (Base)
+
+Contract: https://basescan.org/address/0x4DE534be4793C52ACc69A230A0318fF1A06aF8A0
 
 Roles and Wallets
 
@@ -97,8 +105,29 @@ npx hardhat console --network testnet
 ```javascript
 const Contract = await ethers.getContractFactory('BTREEToken');
 const contract = await Contract.attach(
-    '0x1Ca23BB7dca2BEa5F57552AE99C3A44fA7307B5f'
+    '0x4DE534be4793C52ACc69A230A0318fF1A06aF8A0'
 );
+
+// minter role
+await contract.grantRole(
+    '0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6',
+    '0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61'
+);
+await contract.hasRole(
+    '0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6',
+    '0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61'
+);
+
+// pauser role
+await contract.grantRole(
+    '0x65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a',
+    '0x2268E2b8F7640a29752C5c58b8735906F4E84F60'
+);
+await contract.hasRole(
+    '0x65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a',
+    '0x2268E2b8F7640a29752C5c58b8735906F4E84F60'
+);
+
 await contract.balanceOf('0x7435e7f3e6B5c656c33889a3d5EaFE1e17C033CD');
 
 // mint 5,000,000 BTREE
@@ -114,12 +143,15 @@ await contract.transfer(
 );
 
 // increaseAllowance by 550,000 BTREE for contract (`0x14dBB93a78B5e89540e902d1E6Ee26C989e08ef0`) wanting to spent it
-// FIRST: ensure you using test wallet that you want to increase allowance for
+// FIRST: ensure you are using test wallet that you want to increase allowance for
 await contract.increaseAllowance(
     '0x14dBB93a78B5e89540e902d1E6Ee26C989e08ef0',
     '555000000000000000000000'
 );
 
 // owner and sender
-await contract.allowance('0x458788Af51027917462c87AA6959269249CE8B4c', '0x14dBB93a78B5e89540e902d1E6Ee26C989e08ef0')
+await contract.allowance(
+    '0x458788Af51027917462c87AA6959269249CE8B4c',
+    '0x14dBB93a78B5e89540e902d1E6Ee26C989e08ef0'
+);
 ```
