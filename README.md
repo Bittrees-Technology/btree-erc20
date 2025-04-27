@@ -107,9 +107,10 @@ maturity is reach and more peace of mind is to be had in relinquishing that role
 
 ## **Optimism:**
 Deployed by calling on the createOptimismMintableERC20 on the 0x4200000000000000000000000000000000000012 precompile
-contract using the L1 (Sepolia or Mainnet, respectively) BTREE contract address. After that, a PR should be made to
-https://github.com/ethereum-optimism/ethereum-optimism.github.io to add the contract addresses to the repo so as to
-signal/indicate the canonical L2 contract bridges should use for minting/burning when bridging L1 tokens to L2
+contract on the L2, using the L1 (Sepolia or Mainnet, respectively) BTREE contract address, name and symbol as the 
+arguments. After that, a PR should be made to https://github.com/ethereum-optimism/ethereum-optimism.github.io to 
+add the contract addresses to the repo to signal/indicate the canonical L2 contract bridges should use for 
+minting/burning when bridging tokens between the L1 and L2.
 ### Optimism Mainnet
 Contract: https://optimistic.etherscan.io/address/0xB260d236F5eA5094D31F016160705ff53ac45028
 
