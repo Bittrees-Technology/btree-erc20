@@ -71,11 +71,9 @@ Admin role: 0x0
 Minter role: 0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6
 Pauser role: 0x65d7a28e3265b37a6474929f336521b332c1681b933f6cb9f3376673440d862a
 
-### Testnet (Base Sepolia)
-
-Contract: https://sepolia.basescan.org/address/0xCa6f24a651bc4Ab545661a41a81EF387086a34C2
-
-### Mainnet (Ethereum)
+# Primary Deployments - Ethereum and Ethereum Testnets
+Token contracts created by direct deployment by an EOA.
+## Mainnet (Ethereum) - Main Deployment
 
 Contract: https://etherscan.io/address/0x6bDdE71Cf0C751EB6d5EdB8418e43D3d9427e436
 
@@ -85,17 +83,64 @@ Roles and Wallets
 -   Pauser (Core DAO): 0x2268E2b8F7640a29752C5c58b8735906F4E84F60
 -   Recipient is Bittrees Capital: 0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd <https://app.safe.global/home?safe=eth:0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd>
 
-### Mainnet (Base)
+## Testnet (Sepolia) - Main Deployment
 
-Contract: https://basescan.org/address/0x4DE534be4793C52ACc69A230A0318fF1A06aF8A0
+Contract: https://sepolia.etherscan.io/address/0x8389eFa79EF27De249AF63f034D7A94dFBdd4cBE
 
 Roles and Wallets
 
--   Minter, Authority (Board of Directors): 0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61
--   Pauser (Core DAO): 0x2268E2b8F7640a29752C5c58b8735906F4E84F60
--   Recipient is Bittrees Capital: 0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd <https://app.safe.global/home?safe=eth:0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd>
+-   Minter, Authority (Board of Directors): 0xa657a18cAaFBdb58536B8Ce366A570CD3dbCAc61        # gov.bittrees.eth
+-   2nd Minter, For Testing (Tech subDAO): 0x2CB5C7bd24480C9D450eD07eb49F4525ee41083a         # tech.gov.bittrees.eth
+-   Pauser (Core DAO): 0x2268E2b8F7640a29752C5c58b8735906F4E84F60                             # coredao.eth
+-   2nd Pauser, For Testing (Tech subDAO): 0x2CB5C7bd24480C9D450eD07eb49F4525ee41083a         # tech.gov.bittrees.eth
+-   Mint funds to Bittrees Capital: 0x6e4063a6481ab48FED6eeEBceA440d3bFe1e5Dcd                # capital.bittrees.eth
+-   Mint more funds, For Testing (Tech SubDAO): 0x2CB5C7bd24480C9D450eD07eb49F4525ee41083a    # tech.gov.bittrees.eth
 
-## Test Minting with Hardhat
+# Secondary Deployments - Chains the BTREE token is officially bridged to.
+
+#### Roles and Wallets - Bridged Deployment
+Not relevant or usable on bridged deployments. Secondary deployments cannot mint or pause their contracts, also limiting
+the effectiveness of pausing the contract on Mainnet Primary Deployments. as such, consideration should be given to
+renouncing the PAUSER_ROLE by all who have it, as well as the DEFAULT_ADMIN_ROLE considering the contract is not 
+upgradeable. The MINTER_ROLE shall be retained for now as a defensive mechanism to protect against hostile takeover until
+maturity is reach and more peace of mind is to be had in relinquishing that role irrecoverably.
+
+## **Optimism:**
+Deployed by calling on the createOptimismMintableERC20 on the 0x4200000000000000000000000000000000000012 precompile
+contract on the L2, using the L1 (Sepolia or Mainnet, respectively) BTREE contract address, name and symbol as the 
+arguments. After that, a PR should be made to https://github.com/ethereum-optimism/ethereum-optimism.github.io to 
+add the contract addresses to the repo to signal/indicate the canonical L2 contract bridges should use for 
+minting/burning when bridging tokens between the L1 and L2.
+### Optimism Mainnet
+Contract: https://optimistic.etherscan.io/address/0xB260d236F5eA5094D31F016160705ff53ac45028
+
+### Optimism Sepolia
+Contract: https://sepolia-optimistic.etherscan.io/address/0x7E5A0b6C5c32883AE8E5b830c05688Eff317c3fb
+
+## **Base:**
+Same process as Optimism
+### Base Mainnet
+Contract: https://basescan.org/address/0x4aCFF883f2879e69e67B7003ccec56C73ee41F6f
+
+### Base Sepolia
+Contract: https://sepolia.basescan.org/address/0xF8c91a56db8485FCee21c5bf6345B063Cf4228F6
+
+## **Arbitrum One:**
+Deployed automatically by the bridge at a deterministic contract address when the token is first bridged to the chain.
+Therefore there should not be multiple L2 contracts mapping back to the L1 contract, and the single L2 contract mapped
+back to the L1 contract can be taken as canonical, negating the need to open a PR on github indicating the canonical
+L2 contract.
+### Arbitrum One Mainnet
+Contract: https://arbiscan.io/address/0xa29871e78fc005d31982f942e1569265ba145a34
+
+### Arbitrum Sepolia
+Contract: https://sepolia.arbiscan.io/address/0x65414d6a6df9a139a462c2f43199de580a348df9
+
+
+
+
+
+# Test Minting with Hardhat
 
 ```shell
 cd contract
